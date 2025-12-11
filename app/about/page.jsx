@@ -44,32 +44,30 @@ export default async function About() {
       </div>
 
       <div className="mx-auto w-11/12 max-w-6xl">
-        {/* team */}
-        <div className="-mt-20 relative z-20 mb-20">
-          <SpotlightCard className="border-white/5 bg-darkest/95 p-8 text-center shadow-2xl backdrop-blur-md md:p-12">
-            <h4 className="mb-8 text-sm font-bold uppercase tracking-[0.2em] text-gray-500">
-              Core Team 2024
-            </h4>
-            <div className="flex flex-wrap justify-center gap-3">
-              {team.members.map((member) => (
-                <div
-                  key={member._id}
-                  className="group relative cursor-default rounded-full border border-white/10 bg-white/5 px-5 py-2 text-sm transition-all hover:border-neon-green/50 hover:bg-white/10"
-                >
-                  <span className="font-bold text-white transition-colors group-hover:text-neon-green">
+        <div className="-mt-20 relative z-20 mb-32">
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {team.members.map((member) => (
+              <SpotlightCard
+                key={member._id}
+                className="group relative flex items-center justify-between border border-white/10 bg-darkest/90 px-5 py-4 transition-all hover:bg-white/5 hover:border-neon-green/30"
+                spotlightColor="rgba(156, 205, 126, 0.1)"
+              >
+                <div className="flex flex-col">
+                  <span className="font-bold text-sm text-white group-hover:text-neon-green transition-colors">
                     {member.firstName} {member.lastName}
                   </span>
-                  <span className="mx-2 text-gray-600">|</span>
-                  <span className="text-gray-400">{member.designation}</span>
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-gray-500">
+                    {member.designation}
+                  </span>
                 </div>
-              ))}
-            </div>
-          </SpotlightCard>
+              </SpotlightCard>
+            ))}
+          </div>
         </div>
 
         {/* developers */}
         {developers && developers.length > 0 && (
-          <div className="mb-20">
+          <div className="mb-20 -mt-16">
             <h2 className="mb-16 text-center text-4xl font-bold tracking-tight">
               <span className="text-neon-green">/</span> The Developers
             </h2>
@@ -109,7 +107,7 @@ export default async function About() {
         </div>
 
         {/* departments */}
-        <div className="mb-32">
+        <div className="mb-32 -mt-12">
           <div className="mb-12 flex items-center justify-end gap-4 text-right">
             <h2 className="text-4xl font-bold text-white">Departments</h2>
             <div className="h-10 w-2 bg-neon-green"></div>
